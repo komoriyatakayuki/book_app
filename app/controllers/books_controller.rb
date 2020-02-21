@@ -1,15 +1,15 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_author!
   before_action :set_book, only: [:update, :show, :edit, :destroy]
   def index
-    @books = current_user.books.order(:id)
+    @books = current_author.books.order(:id)
   end
   
   def show
   end
   
   def new
-    @book = current_user.books.build
+    @book = current_author.books.build
     
   end
   
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = current_user.books.build(book_params)
+    @book = current_author.books.build(book_params)
     if @book.save
       redirect_to book_path(@book)
     else
@@ -43,12 +43,12 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book). permit(:author_id, :published_id)
+    params.require(:book). permit(:author, :published_id)
   end
   
   private
   def set_book
-    @book = current_user.books.find(params[:id])
+    @book = current_author.books.find(params[:id])
   end
 end
 

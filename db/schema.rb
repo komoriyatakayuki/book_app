@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20200221084321) do
     t.datetime "published_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
 end

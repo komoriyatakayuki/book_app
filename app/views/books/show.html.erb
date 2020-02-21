@@ -1,0 +1,9 @@
+<h1>本の詳細ページ</h1>
+<li><%= @book.author %></li>
+<li><%= @book.name %></li>
+<li><%= @book.published_at %></li>
+
+
+<%= link_to '編集する', edit_book_path(@book) %>
+<%= link_to '削除する', book, method: :delete, data:{ confirm: '本当によろしいですか？'} %>
+<%= link_to '一覧表へ', books_path %>

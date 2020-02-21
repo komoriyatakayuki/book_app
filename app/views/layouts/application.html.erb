@@ -9,6 +9,19 @@
   </head>
 
   <body>
+         <p class= "notice"><%= notice %></p>
+    <p class= "alert"><%= alert %></p>
+      <% if author_signed_in? %>
+        <%= link_to 'logout', destroy_author_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'signup', new_author_registration_path %>
+        <%= link_to 'signin', new_author_session_path %>
+      <% end %>
+      
+      <% if author_signed_in? %>
+        <%= current_author.email %>
+      <% end %>
+
     <%= yield %>
   </body>
 </html>

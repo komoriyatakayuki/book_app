@@ -1,0 +1,7 @@
+<h1>新規入力ページ</h1>
+<%= form_for @book do |t| %>
+<%= t.integer :author_id %>
+<%= t.string :name %>
+<%= t.datetime_field :published_at %>
+<%= t.submit %>
+<% end %>
