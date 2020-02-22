@@ -37,13 +37,13 @@ class BooksController < ApplicationController
   
   def destroy
     
-    @boo.destroy
+    @book.destroy
     redirect_to books_path
   end
 
   private
   def book_params
-    params.require(:book). permit(:author, :published_id)
+    params.require(:book). permit(:author_id, :published_id)
   end
   
   private
